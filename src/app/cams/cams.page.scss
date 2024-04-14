@@ -1,0 +1,134 @@
+ion-content {
+    --background: #DFDFDF;
+    --color: #676767;
+}
+
+#title{
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    color: black;
+    font-weight: 800;
+}
+ion-fab{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+}
+.grid-label{
+
+    color: white;
+}
+.button-panel{
+    --border-radius: 50px;
+    width: 5rem;
+    height: 5rem;
+    --background: white;
+}
+ion-img{
+    --width: 100%;
+    --height: 100%;
+    --border-radius: 50px;
+    font-size: 25px;
+    margin-top: 1rem;
+    margin-left: 35%;
+}
+ion-card{
+    background-color: white;
+    padding: .5rem;
+    width: 500px;
+    height: 370px;
+    position: absolute;
+    top: 20%;
+    right: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ion-button{
+    width: 500px;
+    height: 60px;
+    --border-radius: 50px;
+    font-size: 25px;
+    margin-top: 1rem;
+}
+#botones{
+    width: 500px;
+    height: 60px;
+    --border-radius: 50px;
+    font-size: 25px;
+    margin-top: 1rem;
+    position: absolute;
+    top: 70%;
+    right: 3%;
+}
+.btn-cam{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.label_cam{
+    display: flex;
+    flex-direction: column;
+    
+}
+.icon-cam{
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+#icon-cam1{
+    font-size: 2rem;
+    margin-left: 1rem;
+    color: red;
+}
+
+.btn-cam > .label_cam{
+    display: flex;
+}
+
+.reloj {
+    font-family: 'Share Tech Mono', monospace;
+    color: black;
+    text-align: center;
+    position: absolute;
+    left: 21%;
+    top: 75%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+.fecha,
+.tiempo {
+    margin-left: 1rem;
+    letter-spacing: 0.1em;
+    font-size: 22px;
+}
+.grid-label{
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: rgb(107, 107, 107);
+} 
+ion-row{
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 43rem;
+    height: 7rem;
+}
+ion-grid{
+    margin-top: 12%;
+}
+ion-icon[name="checkmark-circle"] {
+    color: green;
+}
+  
+
+
+
+

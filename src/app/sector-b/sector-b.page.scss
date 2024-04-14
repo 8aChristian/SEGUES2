@@ -1,0 +1,12 @@
+ion-content{
+    --background: none;
+    background-image: url('/assets/Interfaz_User_B.png'); /* Ruta relativa al archivo multimedia */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ion-fab{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+}

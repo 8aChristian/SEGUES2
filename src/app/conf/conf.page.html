@@ -1,0 +1,158 @@
+<ion-content [fullscreen]="true">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col id="tituloo">
+        <ion-label id="title">Administracion de perfil</ion-label>
+        <ion-label id="labell">If you want to change your name, email and password just delete and enter in the corresponding field.</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label><ion-icon name="storefront"></ion-icon>Company</ion-label>
+        <ion-label class="variable">{{ empresa1 }}</ion-label>
+      </ion-col>
+
+      <ion-col class="columna2">
+        <ion-input [(ngModel)]="empresaUsuario" aria-label="Dark input" color="light" label=" Input your Company: " [counter]="true"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label><ion-icon name="build"></ion-icon>Role</ion-label>
+        <ion-label class="variable">{{ role1 }}</ion-label>
+      </ion-col>
+
+      <ion-col class="columna2">
+        <ion-input [(ngModel)]="roleUsuario" aria-label="Dark input" color="light" label=" Input your Role: " [counter]="true"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label><ion-icon name="mail-open"></ion-icon>E - mail</ion-label>
+        <ion-label class="variable">{{ correo1 }}</ion-label>
+      </ion-col>
+
+      <ion-col class="columna2">
+        <ion-input [(ngModel)]="newCorreo" email ngModel errorText="Invalid email" type="email" helperText="Enter a valid email"  aria-label="Dark input" color="light" label="Input your E-mail:" [counter]="true"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label><ion-icon name="person-circle"></ion-icon>Name</ion-label>
+        <ion-label class="variable">{{ nombre1 }}</ion-label>
+      </ion-col>
+
+      <ion-col class="columna2">
+        <ion-input aria-label="light input" color="light" label="Input your Name:" [counter]="true" [(ngModel)]="newName"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label><ion-icon name="location-sharp"></ion-icon>Country</ion-label>
+        <ion-label class="variable">{{ pais1 }}</ion-label>
+      </ion-col>
+
+      <ion-col>
+        <ion-select (ionChange)="handleChange($event)"  placeholder="Select your country">
+          <ion-select-option *ngFor="let country of paises" [value]="country">{{ country }}</ion-select-option>
+        </ion-select>        
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label><ion-icon name="call"></ion-icon>Phone Number</ion-label>
+        <ion-label class="variable">{{ numero1 }}</ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-input [(ngModel)]="phoneUsuario" aria-label="light input" color="light" label="Input Phone Number: {{ extension }}" [counter]="true" maxlength="10"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label><ion-icon name="lock-closed"></ion-icon>Password</ion-label>
+      </ion-col>
+      <ion-col id="col12">
+        <ion-label>Your Act Password: {{ contra1 }} </ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label><ion-icon name="lock-open"></ion-icon>New Password</ion-label>
+      </ion-col>
+      <ion-col id="newpass2">
+        <ion-input [(ngModel)]="newpassUsuario" aria-label="light input" color="light" type="{{ showPassword ? 'text' : 'password' }}" [(ngModel)]="password" class="contraseñaIn" label="Input New Password"></ion-input>
+        <ion-icon name="{{ showPassword ? 'eye-off' : 'eye' }}"  (click)="togglePasswordVisibility()" class="iconEye"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="toogleCol">
+        <ion-icon name="create" id="icon-edit"></ion-icon>
+        Edit fields
+        <ion-toggle aria-label="Enable Notifications" [(ngModel)]="isToggleEnabled" (ngModelChange)="toggleChanged()"></ion-toggle>
+      </ion-col>
+      <ion-col  id="buttonCol">
+        <ion-button (click)="updateUserProfile()" [disabled]="!isToggleEnabled" color="light" id="butReg" routerLink="/conf">Save changes</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Centro de ayuda</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnO5g1jD94_a7zQt2f7kFQj53hX6t6J6_Z8NE6G0u0V3fXrQ/viewform" target="_blank" class="faq-link">
+        <ion-icon name="information-circle" class="icons"></ion-icon>
+        <ion-label>About us</ion-label>
+      </a>  
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnO5g1jD94_a7zQt2f7kFQj53hX6t6J6_Z8NE6G0u0V3fXrQ/viewform" target="_blank" class="faq-link">
+        <ion-icon name="calendar-clear" class="icons"></ion-icon>
+        <ion-label>News</ion-label>
+      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnO5g1jD94_a7zQt2f7kFQj53hX6t6J6_Z8NE6G0u0V3fXrQ/viewform" target="_blank" class="faq-link">
+        <ion-icon name="help-circle" class="icons"></ion-icon>
+        <ion-label>Top FAQ</ion-label>
+      </a>  
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnO5g1jD94_a7zQt2f7kFQj53hX6t6J6_Z8NE6G0u0V3fXrQ/viewform" target="_blank" class="faq-link">
+        <ion-icon name="chatbox-ellipses" class="icons"></ion-icon>
+        <ion-label>Comments</ion-label>
+      </a>   
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnO5g1jD94_a7zQt2f7kFQj53hX6t6J6_Z8NE6G0u0V3fXrQ/viewform" target="_blank" class="faq-link">
+        <ion-icon name="book" class="icons"></ion-icon>
+        <ion-label>User's manual</ion-label>
+      </a> 
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab slot="fixed">
+    <ion-fab-button color="dark">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button routerLink="/conf" color="light">
+        <ion-icon name="cog"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button routerLink="/sector-b" color="light">
+        <ion-icon name="football"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button routerLink="/sector-a" color="light">
+        <ion-icon name="home"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button routerLink="/cams" color="light">
+        <ion-icon name="videocam"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  
+</ion-content>

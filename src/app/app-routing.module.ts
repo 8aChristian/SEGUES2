@@ -11,6 +11,30 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'sector-a',
+    loadChildren: () => import('./sector-a/sector-a.module').then( m => m.SectorAPageModule)
+  },
+  {
+    path: 'cams',
+    loadChildren: () => import('./cams/cams.module').then( m => m.CamsPageModule)
+  },
+  {
+    path: 'sector-b',
+    loadChildren: () => import('./sector-b/sector-b.module').then( m => m.SectorBPageModule)
+  },
+  {
+    path: 'conf',
+    loadChildren: () => import('./conf/conf.module').then( m => m.ConfPageModule)
+  },
 ];
 
 @NgModule({
