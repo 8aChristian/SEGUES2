@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'conf',
     loadChildren: () => import('./conf/conf.module').then( m => m.ConfPageModule)
   },
+  {
+    path: 'forgot',
+    loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
+  },
 ];
 
 @NgModule({

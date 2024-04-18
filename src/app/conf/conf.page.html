@@ -3,7 +3,7 @@
   <ion-grid>
     <ion-row>
       <ion-col id="tituloo">
-        <ion-label id="title">Administracion de perfil</ion-label>
+        <ion-label id="title">PROFILE MANAGEMENT</ion-label>
         <ion-label id="labell">If you want to change your name, email and password just delete and enter in the corresponding field.</ion-label>
       </ion-col>
     </ion-row>
@@ -14,7 +14,7 @@
       </ion-col>
 
       <ion-col class="columna2">
-        <ion-input [(ngModel)]="empresaUsuario" aria-label="Dark input" color="light" label=" Input your Company: " [counter]="true"></ion-input>
+        <ion-input [(ngModel)]="empresaUsuario" aria-label="Dark input" color="light" label=" Enter your Company: " [counter]="true"></ion-input>
       </ion-col>
     </ion-row>
 
@@ -25,7 +25,7 @@
       </ion-col>
 
       <ion-col class="columna2">
-        <ion-input [(ngModel)]="roleUsuario" aria-label="Dark input" color="light" label=" Input your Role: " [counter]="true"></ion-input>
+        <ion-input [(ngModel)]="roleUsuario" aria-label="Dark input" color="light" label=" Enter your Role: " [counter]="true"></ion-input>
       </ion-col>
     </ion-row>
 
@@ -36,7 +36,7 @@
       </ion-col>
 
       <ion-col class="columna2">
-        <ion-input [(ngModel)]="newCorreo" email ngModel errorText="Invalid email" type="email" helperText="Enter a valid email"  aria-label="Dark input" color="light" label="Input your E-mail:" [counter]="true"></ion-input>
+        <ion-input [(ngModel)]="newCorreo" email ngModel errorText="Invalid email" type="email" helperText="Enter a valid email"  aria-label="Dark input" color="light" label="Enter your E-mail:" [counter]="true"></ion-input>
       </ion-col>
     </ion-row>
 
@@ -47,7 +47,7 @@
       </ion-col>
 
       <ion-col class="columna2">
-        <ion-input aria-label="light input" color="light" label="Input your Name:" [counter]="true" [(ngModel)]="newName"></ion-input>
+        <ion-input aria-label="light input" color="light" label="Enter your Name:" [counter]="true" [(ngModel)]="newName"></ion-input>
       </ion-col>
     </ion-row>
 
@@ -70,7 +70,7 @@
         <ion-label class="variable">{{ numero1 }}</ion-label>
       </ion-col>
       <ion-col>
-        <ion-input [(ngModel)]="phoneUsuario" aria-label="light input" color="light" label="Input Phone Number: {{ extension }}" [counter]="true" maxlength="10"></ion-input>
+        <ion-input [(ngModel)]="phoneUsuario" aria-label="light input" color="light" label="Enter Phone Number: {{ extension }}" [counter]="true" maxlength="10"></ion-input>
       </ion-col>
     </ion-row>
 
@@ -88,7 +88,7 @@
         <ion-label><ion-icon name="lock-open"></ion-icon>New Password</ion-label>
       </ion-col>
       <ion-col id="newpass2">
-        <ion-input [(ngModel)]="newpassUsuario" aria-label="light input" color="light" type="{{ showPassword ? 'text' : 'password' }}" [(ngModel)]="password" class="contraseñaIn" label="Input New Password"></ion-input>
+        <ion-input [(ngModel)]="newpassUsuario" aria-label="light input" color="light" type="{{ showPassword ? 'text' : 'password' }}" [(ngModel)]="password" class="contraseñaIn" label="Enter New Password"></ion-input>
         <ion-icon name="{{ showPassword ? 'eye-off' : 'eye' }}"  (click)="togglePasswordVisibility()" class="iconEye"></ion-icon>
       </ion-col>
     </ion-row>
@@ -107,15 +107,15 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Centro de ayuda</ion-card-title>
+      <ion-card-title>HELP CENTER</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnO5g1jD94_a7zQt2f7kFQj53hX6t6J6_Z8NE6G0u0V3fXrQ/viewform" target="_blank" class="faq-link">
+      <a href="https://docs.google.com/document/d/1DBsV-BAeijOwIESMy6G02YG6gnpfGR2A/edit?usp=sharing&ouid=101939050220551242646&rtpof=true&sd=true" target="_blank" class="faq-link">
         <ion-icon name="information-circle" class="icons"></ion-icon>
         <ion-label>About us</ion-label>
       </a>  
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnO5g1jD94_a7zQt2f7kFQj53hX6t6J6_Z8NE6G0u0V3fXrQ/viewform" target="_blank" class="faq-link">
+      <a href="https://www.instagram.com/s3gues?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="faq-link">
         <ion-icon name="calendar-clear" class="icons"></ion-icon>
         <ion-label>News</ion-label>
       </a>
@@ -123,14 +123,18 @@
         <ion-icon name="help-circle" class="icons"></ion-icon>
         <ion-label>Top FAQ</ion-label>
       </a>  
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnO5g1jD94_a7zQt2f7kFQj53hX6t6J6_Z8NE6G0u0V3fXrQ/viewform" target="_blank" class="faq-link">
+      <a href="https://forms.gle/JoDSgNjwvLoLTFg78" target="_blank" class="faq-link">
         <ion-icon name="chatbox-ellipses" class="icons"></ion-icon>
         <ion-label>Comments</ion-label>
       </a>   
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnO5g1jD94_a7zQt2f7kFQj53hX6t6J6_Z8NE6G0u0V3fXrQ/viewform" target="_blank" class="faq-link">
-        <ion-icon name="book" class="icons"></ion-icon>
-        <ion-label>User's manual</ion-label>
-      </a> 
+      <a href="https://drive.google.com/file/d/1DK3GrFyvUD6pSAoux5_n_q2Iifq6NBGl/view?usp=sharing" target="_blank" class="faq-link">
+        <ion-icon name="key" class="icons"></ion-icon>
+        <ion-label>Admin manual</ion-label>
+      </a>
+      <a href="https://forms.gle/JoDSgNjwvLoLTFg78" target="_blank" class="faq-link">
+        <ion-icon name="person-circle" class="icons"></ion-icon>
+        <ion-label>User manual</ion-label>
+      </a>  
     </ion-card-content>
   </ion-card>
 
@@ -142,9 +146,11 @@
       <ion-fab-button routerLink="/conf" color="light">
         <ion-icon name="cog"></ion-icon>
       </ion-fab-button>
+      <!-- 
       <ion-fab-button routerLink="/sector-b" color="light">
         <ion-icon name="football"></ion-icon>
       </ion-fab-button>
+      -->
       <ion-fab-button routerLink="/sector-a" color="light">
         <ion-icon name="home"></ion-icon>
       </ion-fab-button>

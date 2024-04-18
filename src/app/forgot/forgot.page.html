@@ -1,0 +1,31 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-title>Forgot Password</ion-title>
+      </ion-col>
+      
+      <ion-col size="12">
+        <ion-input [(ngModel)]="nombre" aria-label="name" color="transparent" placeholder="Name" class="custom"></ion-input>
+      </ion-col>
+            
+      <ion-col size="12">
+        <ion-input [(ngModel)]="email" aria-label="Email" color="transparent" placeholder="Email" class="custom"></ion-input>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-button color="light" id="butLog" (click)="signIn()">CONFIRM</ion-button>
+      </ion-col>
+      
+      <ion-col size="12">
+        <ion-input [(ngModel)]="newpassUsuario" aria-label="Password" color="transparent" placeholder="Enter New Password"  type="{{ showPassword ? 'text' : 'password' }}" class="custom">
+          <ion-icon name="{{ showPassword ? 'eye-off' : 'eye' }}" (click)="togglePasswordVisibility()" slot="end"></ion-icon>
+        </ion-input>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-button color="light" id="butLog" (click)="updateUserProfile()" [disabled]="!isSendButtonEnabled" routerLink="/login">SEND</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

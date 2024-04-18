@@ -12,24 +12,26 @@
   </ion-row>
 </ion-grid>
 
-  <ion-fab slot="fixed">
-    <ion-fab-button color="dark">
-      <ion-icon name="add"></ion-icon>
+<ion-fab slot="fixed">
+  <ion-fab-button color="dark">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="start">
+    <ion-fab-button routerLink="/conf" color="light">
+      <ion-icon name="cog"></ion-icon>
     </ion-fab-button>
-    <ion-fab-list side="start">
-      <ion-fab-button routerLink="/conf" color="light">
-        <ion-icon name="cog"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button routerLink="/sector-b" color="light">
-        <ion-icon name="football"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button routerLink="/sector-a" color="light">
-        <ion-icon name="home"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button routerLink="/cams" color="light">
-        <ion-icon name="videocam"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
+    <!-- 
+    <ion-fab-button routerLink="/sector-b" color="light">
+      <ion-icon name="football"></ion-icon>
+    </ion-fab-button>
+    -->
+    <ion-fab-button routerLink="/sector-a" color="light">
+      <ion-icon name="home"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button routerLink="/cams" color="light">
+      <ion-icon name="videocam"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
 
 </ion-content>

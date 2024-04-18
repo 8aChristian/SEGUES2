@@ -3,40 +3,40 @@
   <ion-grid id="P_Admin">
     <ion-row>
       <ion-col id="title">
-        <ion-label>Panel de</ion-label>
-        <ion-label>Administración</ion-label>
+        <ion-label>ADMINISTRATION</ion-label>
+        <ion-label>PANEL</ion-label>
       </ion-col>
     </ion-row>
 
     <ion-row class="btn-cam">
       <ion-col>
-        <ion-img src="assets/Btn_Iglesia.png" class="button-panel" (click)="activarCamara()"></ion-img>
+        <ion-img src="assets/Btn_Iglesia.png" class="button-panel" (click)="activarCamaraIglesia()"></ion-img>
       </ion-col>
 
       <ion-col>
-        <ion-label class="grid-label">Sector A</ion-label>
-        <ion-label class="grid-label">Templo</ion-label>
+        <ion-label class="grid-label">SECTOR A</ion-label>
+        <ion-label class="grid-label">TEMPLE</ion-label>
       </ion-col>
 
       <ion-col>
-        <ion-icon name="videocam" id="icon-cam1"></ion-icon>
-        <ion-icon name="checkmark-circle" class="icon-cam"></ion-icon>
+        <ion-icon [name]="camaraActivaIglesia ? 'videocam' : 'videocam-off'" class="icon-cam"></ion-icon>
+        <ion-icon [name]="camaraActivaIglesia ? 'checkmark-circle' : 'close-circle'" class="icon-cam" [style.color]="camaraActivaIglesia ? 'green' : 'red'"></ion-icon>
       </ion-col>
     </ion-row>
 
     <ion-row class="btn-cam">
       <ion-col>
-        <ion-img src="assets/Btn_Cancha.png" class="button-panel" (click)="activarCamara()"></ion-img>
+        <ion-img src="assets/Btn_Cancha.png" class="button-panel" (click)="activarCamaraCancha()"></ion-img>
       </ion-col>
 
       <ion-col>
-        <ion-label class="grid-label">Sector B</ion-label>
-        <ion-label class="grid-label">Cancha</ion-label>
+        <ion-label class="grid-label">SECTOR B</ion-label>
+        <ion-label class="grid-label">SPORTS AREA</ion-label>
       </ion-col>
 
       <ion-col>
-        <ion-icon name="videocam" id="icon-cam1"></ion-icon>
-        <ion-icon name="checkmark-circle" class="icon-cam"></ion-icon>
+        <ion-icon [name]="camaraActivaCancha ? 'videocam' : 'videocam-off'" class="icon-cam"></ion-icon>
+        <ion-icon [name]="camaraActivaCancha ? 'checkmark-circle' : 'close-circle'" class="icon-cam" [style.color]="camaraActivaCancha ? 'green' : 'red'"></ion-icon>
       </ion-col>
     </ion-row>
 
@@ -50,9 +50,11 @@
       <ion-fab-button routerLink="/conf" color="light">
         <ion-icon name="cog"></ion-icon>
       </ion-fab-button>
+      <!-- 
       <ion-fab-button routerLink="/sector-b" color="light">
         <ion-icon name="football"></ion-icon>
       </ion-fab-button>
+      -->
       <ion-fab-button routerLink="/sector-a" color="light">
         <ion-icon name="home"></ion-icon>
       </ion-fab-button>
@@ -69,8 +71,8 @@
   <ion-button color="light" id="botones" (click)="desactivarCamara()" [hidden]="!mostrarCamara">Exit</ion-button>
   
   <div class="reloj">
-    <ion-label class="fecha">FECHA: {{fecha}}</ion-label>
-    <ion-label class="tiempo"> HORA: {{tiempo}}</ion-label>
+    <ion-label class="fecha">DATE: {{fecha}}</ion-label>
+    <ion-label class="tiempo"> TIME: {{tiempo}}</ion-label>
   </div>
   
 </ion-content>
