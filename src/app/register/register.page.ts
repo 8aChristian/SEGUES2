@@ -25,7 +25,6 @@ async registrarUsuario() {
   await setDoc(ref, usuario, { merge: true });
 }
 
-  //PASSWORD EYE
   password: string = '';
   showPassword: boolean = false;
 

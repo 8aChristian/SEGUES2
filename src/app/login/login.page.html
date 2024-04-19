@@ -16,13 +16,14 @@
       </ion-col>
 
       <ion-col size-xs="12">
-        <ion-checkbox color="light"></ion-checkbox>
+        <ion-checkbox (ionChange)="saveCheckboxState($event)" [checked]="rememberMe" color="light"></ion-checkbox>
         <ion-label id="LabelRem">Remember me</ion-label>
         <ion-label id="LabelPass" routerLink="/forgot">Forgot password</ion-label>
       </ion-col>
 
       <ion-col size-xs="12">
-        <ion-button id="open-toast" color="light" id="butLog" (click)="signIn()">SIGN IN</ion-button>
+        <!-- Asegurémonos de que el botón tenga el identificador único "unique-signin" -->
+        <ion-button id="unique-signin" color="light" id="butLog" (click)="signIn()">SIGN IN</ion-button>
       </ion-col>
 
       <ion-col>

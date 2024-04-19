@@ -1,0 +1,48 @@
+ion-content{
+    --background: none;
+    background-image: url('/assets/Interfaz_User_A.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ion-fab{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+}
+
+
+#grid1{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 49%;
+    height: 50%;
+}
+ion-row{
+    height: 35%;
+}
+ion-col{ 
+    width: 5%;
+    height: 100%;
+}
+#grid2{
+    position: absolute;
+    top: 63%;
+    left: 12%;
+    width: 66.7%;
+    height: 18%;
+}
+#row2{
+    height: 100%;
+}
+.col1{ 
+    width: 4%;
+    height: 100%;
+}
+.area-green {
+    background-color: rgba(30, 255, 135, 0.597);
+}
+.area-red {
+    background-color: #ff2e2e6d;
+}

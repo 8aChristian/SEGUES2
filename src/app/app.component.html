@@ -1,3 +1,10 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
+<section>
+  <pdf-viewer [src]="pdfSrc"
+              [render-text]="true"
+              [original-size]="false"
+              style="width: 50%; height: 800px"
+  ></pdf-viewer>
+</section>

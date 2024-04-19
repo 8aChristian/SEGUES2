@@ -7,11 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
@@ -38,6 +33,23 @@ const routes: Routes = [
   {
     path: 'forgot',
     loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
+  },
+  {
+    path: 'select',
+    loadChildren: () => import('./select/select.module').then( m => m.SelectPageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'select',
+    pathMatch: 'full'
+  },
+  {
+    path: 'sector-a-user',
+    loadChildren: () => import('./sector-a-user/sector-a-user.module').then( m => m.SectorAUserPageModule)
+  },
+  {
+    path: 'manual',
+    loadChildren: () => import('./manual/manual.module').then( m => m.ManualPageModule)
   },
 ];
 

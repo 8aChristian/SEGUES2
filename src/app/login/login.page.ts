@@ -12,6 +12,7 @@ export class LoginPage implements OnInit {
   email: string = '';
   password: string = '';
   showPassword: boolean = false;
+  rememberMe: boolean = false;
 
   constructor(private db: Firestore, private router: Router, private toastController: ToastController) { }
 
@@ -20,11 +21,11 @@ export class LoginPage implements OnInit {
       message: message,
       duration: 3000,
       icon: icon,
-      color: color,  // Establecer el color del toast
+      color: color,  
       position: 'bottom'
     });
     await toast.present();
-    return toast.onDidDismiss(); // Returns a promise that resolves when the toast is dismissed.
+    return toast.onDidDismiss();
   }
 
   async signIn() {
@@ -34,16 +35,21 @@ export class LoginPage implements OnInit {
     if (docSnap.exists()) {
       const userData = docSnap.data();
       if (userData['correo'] === this.email && userData['contra'] === this.password) {
-        await this.presentToast('SUCCESSFUL!', 'checkmark-circle', 'success');  // Uso del color verde para éxito
-        this.router.navigateByUrl('/cams');  // Redirección si las credenciales son correctas
+        await this.presentToast('SUCCESSFUL!', 'checkmark-circle', 'success');
+        this.router.navigateByUrl('/cams');  
+
+        if (this.rememberMe) {
+          localStorage.setItem('email', this.email);
+          localStorage.setItem('password', this.password);
+        }
       } else {
-        await this.presentToast('TRY AGAIN', 'close-circle', 'danger');  // Uso del color rojo para error
-        this.router.navigateByUrl('/login');  // Se queda en la página de login si las credenciales son incorrectas
+        await this.presentToast('TRY AGAIN', 'close-circle', 'danger');
+        this.router.navigateByUrl('/login');
       }
     } else {
       console.error('No se encontraron datos de usuario adecuados');
-      await this.presentToast('TRY AGAIN', 'close-circle', 'danger');  // Uso del color rojo para error
-      this.router.navigateByUrl('/login');  // Se queda en la página de login si no hay datos
+      await this.presentToast('TRY AGAIN', 'close-circle', 'danger');
+      this.router.navigateByUrl('/login');
     }
   }
 
@@ -51,6 +57,19 @@ export class LoginPage implements OnInit {
     this.showPassword = !this.showPassword;
   }
 
+  saveCheckboxState(event: any) {
+    this.rememberMe = event.detail.checked;
+  }
+
   ngOnInit() {
+    const storedEmail = localStorage.getItem('email');
+    const storedPassword = localStorage.getItem('password');
+    if (storedEmail && storedPassword) {
+      this.email = storedEmail;
+      this.password = storedPassword;
+      this.rememberMe = true;
+    } else {
+      this.rememberMe = false;
+    }
   }
 }
