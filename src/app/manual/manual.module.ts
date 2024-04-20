@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ManualPageRoutingModule } from './manual-routing.module';
 
 import { ManualPage } from './manual.page';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   imports: [
@@ -14,8 +15,8 @@ import { ManualPage } from './manual.page';
     FormsModule,
     IonicModule,
     ManualPageRoutingModule,
-
-  ],
+    PdfViewerModule],
+    
   declarations: [ManualPage]
 })
 export class ManualPageModule {}

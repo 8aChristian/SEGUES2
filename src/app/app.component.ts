@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  pdfSrc = "https://github.com/MJMMiller/SEGUES2/blob/main/src/assets/ADMIN%20MANUAL.pdf";
-  constructor() {}
+
+  constructor() {
+    (window as any).pdfWorkerSrc = './assets/pdf.worker.min.js';
+  }
+  pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
 }

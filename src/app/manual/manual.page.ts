@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manual.page.scss']
 })
 export class ManualPage implements OnInit {
-
-  constructor() { }
+  constructor() {
+    (window as any).pdfWorkerSrc = './assets/pdf.worker.min.js';
+  }
+  pdfSrc = "./assets/ADMIN MANUAL.pdf";
+  pdfSrc1 = "./assets/USER MANUAL.pdf";
 
   ngOnInit() {
   }
