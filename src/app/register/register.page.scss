@@ -1,19 +1,19 @@
 ion-content {
     --background: #DFDFDF;
     --color: #676767;
-    flex-direction: column;
-    display: flex;
 }
 ion-grid{
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 ion-row{
-    position: absolute;
-    top: 25%;
     width: 100%;
 }
 ion-title{
-    margin: 1rem 0rem 1rem 0rem;
+    margin: 1rem 0rem 2rem 0rem;
     font-size: 50px; 
     font-weight: 700;
     color: rgb(36, 36, 36);
