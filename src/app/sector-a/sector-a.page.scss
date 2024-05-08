@@ -10,11 +10,9 @@ ion-fab{
     top: 3%;
     right: 3%;
 }
-
-
 #grid1{
     position: absolute;
-    top: 20%;
+    top: 16%;
     left: 30%;
     width: 49%;
     height: 50%;
@@ -22,13 +20,17 @@ ion-fab{
 ion-row{
     height: 35%;
 }
+#row1{
+    height: 39%;
+    margin-top: 0.2rem;
+}
 ion-col{ 
     width: 5%;
     height: 100%;
 }
 #grid2{
     position: absolute;
-    top: 63%;
+    top: 64%;
     left: 12%;
     width: 66.7%;
     height: 18%;
@@ -38,11 +40,22 @@ ion-col{
 }
 .col1{ 
     width: 4%;
-    height: 100%;
+    height: 114%;
 }
 .area-green {
     background-color: rgba(30, 255, 135, 0.597);
 }
 .area-red {
     background-color: #ff2e2e6d;
+}
+#espacios{
+    display: flex;
+    position: absolute;
+    top: 11%;
+    left: 30%;
+    background-color: transparent;
+}
+.count-label{
+    margin-right: 5rem;
+    font-size: 2em;
 }

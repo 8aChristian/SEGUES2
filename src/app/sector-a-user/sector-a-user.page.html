@@ -1,7 +1,7 @@
 <ion-content padding class="background">
   <ion-icon name="caret-back" routerLink="/select"></ion-icon>
   <ion-grid id="grid1">
-    <ion-row *ngFor="let row of [0, 1]">
+    <ion-row *ngFor="let row of [0, 1]" id="row1">
       <ion-col *ngFor="let col of [0, 1, 2, 3, 4, 5, 6, 7]" [ngClass]="{'area-green': states[8 * row + col], 'area-red': !states[8 * row + col]}"></ion-col>
     </ion-row>
   </ion-grid>
