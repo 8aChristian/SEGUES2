@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebcamImage } from 'ngx-webcam';
 import { Observable, Subject } from 'rxjs';
+import { Camera, CameraResultType } from '@capacitor/camera'; // Importa el plugin de la cámara de Capacitor
 
 @Component({
   selector: 'app-cams',
@@ -35,14 +36,36 @@ export class CamsPage implements OnInit {
     return this.trigger.asObservable();
   }
 
-  activarCamaraIglesia(): void {
+  async activarCamaraIglesia() {
     this.mostrarCamara = true;
     this.camaraActivaIglesia = true;
+    this.camaraActivaCancha = false;
+
+    // Accede a la cámara de Capacitor directamente
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Uri // Utiliza 'uri' para obtener la URI de la imagen
+    });
+
+    // Aquí puedes procesar la imagen como desees, por ejemplo, mostrarla en tu aplicación Angular
+    const imageUrl = image.webPath;
   }
 
-  activarCamaraCancha(): void {
+  async activarCamaraCancha() {
     this.mostrarCamara = true;
     this.camaraActivaCancha = true;
+    this.camaraActivaIglesia = false;
+
+    // Accede a la cámara de Capacitor directamente
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Uri // Utiliza 'uri' para obtener la URI de la imagen
+    });
+
+    // Aquí puedes procesar la imagen como desees, por ejemplo, mostrarla en tu aplicación Angular
+    const imageUrl = image.webPath;
   }
 
   desactivarCamara(): void {
