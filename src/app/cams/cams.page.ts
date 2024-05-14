@@ -1,16 +1,21 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { WebcamImage } from 'ngx-webcam';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-cams',
   templateUrl: './cams.page.html',
   styleUrls: ['./cams.page.scss'],
 })
-export class CamsPage implements OnInit {
-  @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
-
+export class CamsPage implements OnInit, OnDestroy {
+  private trigger: Subject<void> = new Subject<void>();
   public mostrarCamara: boolean = false;
+  public camaraActivaIglesia: boolean = false;
+  public camaraActivaCancha: boolean = false;
   tiempo: string = "";
   fecha: string = "";
+  videoStream: MediaStream | null = null;
+  videoElement: HTMLVideoElement | null = null;
 
   constructor() {
     this.actualizarReloj();
@@ -18,29 +23,44 @@ export class CamsPage implements OnInit {
   }
 
   ngOnInit() {
-    this.accederCamaraUSB();
   }
 
-  accederCamaraUSB() {
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then((stream: MediaStream) => {
-        this.mostrarCamara = true;
-        if (this.videoPlayer) {
-          this.videoPlayer.nativeElement.srcObject = stream;
-        }
-      })
-      .catch((error) => {
-        console.error('Error accediendo a la cámara USB:', error);
-        // Manejar el error
-      });
+  ngOnDestroy() {
+    // Asegúrate de detener la transmisión de video al destruir el componente
+    if (this.videoStream) {
+      this.videoStream.getTracks().forEach(track => track.stop());
+    }
+  }
+
+  triggerSnapshot(): void {
+    this.trigger.next();
+  }
+
+  handleImage(webcamImage: WebcamImage): void {
+    console.info('received webcam image', webcamImage);
+  }
+
+  public get triggerObservable(): Observable<void> {
+    return this.trigger.asObservable();
+  }
+
+  activarCamaraIglesia(): void {
+    this.mostrarCamara = true;
+    this.camaraActivaIglesia = true;
+    this.activateUSBWebcam();
+  }
+
+  activarCamaraCancha(): void {
+    this.mostrarCamara = true;
+    this.camaraActivaCancha = true;
+    this.activateUSBWebcam();
   }
 
   desactivarCamara(): void {
     this.mostrarCamara = false;
-    if (this.videoPlayer && this.videoPlayer.nativeElement.srcObject instanceof MediaStream) {
-      const tracks = (this.videoPlayer.nativeElement.srcObject as MediaStream).getTracks();
-      tracks.forEach((track: any) => track.stop());
-    }
+    this.camaraActivaIglesia = false;
+    this.camaraActivaCancha = false;
+    this.stopUSBWebcam();
   }
 
   private actualizarReloj(): void {
@@ -54,5 +74,34 @@ export class CamsPage implements OnInit {
     const semana = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
     const showSemana = semana[diaSemana];
     this.fecha = `${showSemana} ${dia}-${mes}-${anio}`;
+  }
+
+  private async activateUSBWebcam() {
+    try {
+      // Accede a la cámara utilizando getUserMedia
+      const constraints: MediaStreamConstraints = { video: true };
+      this.videoStream = await navigator.mediaDevices.getUserMedia(constraints);
+      
+      // Muestra el video en un elemento HTMLVideoElement
+      if (this.videoStream) {
+        this.videoElement = document.createElement('video');
+        this.videoElement.srcObject = this.videoStream;
+        this.videoElement.play();
+      }
+    } catch (error) {
+      console.error('Error al activar la cámara USB:', error);
+    }
+  }
+
+  private stopUSBWebcam() {
+    // Detiene la transmisión de video
+    if (this.videoStream) {
+      this.videoStream.getTracks().forEach(track => track.stop());
+    }
+    // Detiene la reproducción del video
+    if (this.videoElement) {
+      this.videoElement.pause();
+      this.videoElement.srcObject = null;
+    }
   }
 }
